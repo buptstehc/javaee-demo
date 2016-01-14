@@ -1,5 +1,6 @@
 package com.cmcciot.demo.web.controller;
 
+import com.cmcciot.demo.common.utils.ResponseUtil;
 import com.cmcciot.demo.dao.model.User;
 import com.cmcciot.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
+import javax.validation.Valid;
 import java.util.Map;
 
 /**
@@ -35,9 +36,19 @@ public class DemoController {
     public Map getUserInfo(@PathVariable Integer id) {
         User user = userService.findById(id);
 
-        Map r = new HashMap();
-        r.put("data", user);
+        return ResponseUtil.ok(user);
+    }
 
-        return r;
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @ResponseBody
+    public Map getUsersInfo(int page, int size) {
+        Map data = userService.findAllUsers(page, size);
+
+        return ResponseUtil.ok(data);
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public void register(@Valid User user) {
+        System.out.println(user);
     }
 }

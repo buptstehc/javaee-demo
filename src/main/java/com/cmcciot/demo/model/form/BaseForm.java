@@ -1,4 +1,4 @@
-package com.cmcciot.demo.web.model.form;
+package com.cmcciot.demo.model.form;
 
 /**
  * Created by Huang Chuan on 2014/7/15.

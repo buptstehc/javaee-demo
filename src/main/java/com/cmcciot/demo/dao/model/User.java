@@ -1,10 +1,14 @@
 package com.cmcciot.demo.dao.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User extends BasePO {
     private Integer id;
 
+    @NotEmpty
     private String username;
 
+    @NotEmpty
     private String password;
 
     public Integer getId() {

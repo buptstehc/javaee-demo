@@ -1,4 +1,4 @@
-package com.cmcciot.demo.web.model.vo;
+package com.cmcciot.demo.model.vo;
 
 /**
  * Created by Huang Chuan on 2014/4/28.
