@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.validation.Valid;
 import java.util.Map;
 
-/**
+/** MVC示例.
  * @Description
  * @Author 黄川
  * @Date 16/1/11

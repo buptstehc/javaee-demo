@@ -1,12 +1,14 @@
 package com.cmcciot.demo.model;
 
+import java.io.Serializable;
+
 /**
  * @Description
  * @Author 黄川
  * @Date 16/1/13
  */
 
-public class PageInfo {
+public class PageInfo implements Serializable {
 
     private int total = 0; // 总记录数
     private int limit = 20; // 每页显示记录数

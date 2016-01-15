@@ -31,6 +31,7 @@
 		<param-value>
             classpath:spring/service-config.xml
             classpath:spring/dao-config.xml
+			classpath:spring/integration-config.xml
         </param-value>
 	</context-param>
 

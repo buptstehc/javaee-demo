@@ -2,7 +2,9 @@ package com.cmcciot.demo.dao.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class User extends BasePO {
+import java.io.Serializable;
+
+public class User extends BasePO implements Serializable{
     private Integer id;
 
     @NotEmpty

@@ -4,10 +4,10 @@ import com.cmcciot.demo.dao.mapper.UserMapper;
 import com.cmcciot.demo.dao.model.User;
 import com.cmcciot.demo.model.PageInfo;
 import com.cmcciot.demo.service.UserService;
-import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -25,12 +25,8 @@ public class UserServiceImpl implements UserService {
 
     private final static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    private UserMapper userMapper;
-
     @Autowired
-    public void setUserMapper(UserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
+    private UserMapper userMapper;
 
     @Override
     public User findById(Integer id) {
@@ -40,6 +36,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable("Demo-Cache")
     public Map findAllUsers(int page, int size) {
         List<User> users = userMapper.selectAll((page - 1) * size, size);
         int count = userMapper.selectCount();
