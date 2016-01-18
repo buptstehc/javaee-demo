@@ -1,14 +1,12 @@
 package com.cmcciot.demo.model;
 
-import java.io.Serializable;
-
 /**
  * @Description
  * @Author 黄川
  * @Date 16/1/13
  */
 
-public class PageInfo implements Serializable {
+public class PageInfo {
 
     private int total = 0; // 总记录数
     private int limit = 20; // 每页显示记录数
@@ -20,6 +18,9 @@ public class PageInfo implements Serializable {
     private boolean hasNextPage = false;       //是否有下一页
     private static final int navigatePages = 8; //导航页码数
     private int[] navigatePageNumbers;  //所有导航页号
+
+    public PageInfo() {
+    }
 
     public PageInfo(int total, int pageNumber, int limit) {
         init(total, pageNumber, limit);

@@ -10,9 +10,12 @@
         <property name="usePool" value="true"/>
     </bean>
 
+    <bean id="kyroRedisSerializer" class="com.cmcciot.demo.integration.cache.KyroRedisSerializer"/>
+
     <!-- redis template definition -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="defaultSerializer" ref="kyroRedisSerializer"/>
     </bean>
 
     <!-- turn on declarative caching -->
